@@ -58,12 +58,18 @@ int main(int argc, char** argv) {
 //Calculate Median
     cout<<"The median of the set is ";
     cout<<Median(a,size)<<"."<<endl;
-//Calculate Mode
-    Mode(a,size);
-    
+//Calculate Mode'n'Stuff
+    int *p=Mode(a,size);
+//Print Mode Array
+    cout<<"Mode Set"<<endl;
+    for(int c=0;!(p[c]==0);){
+        cout<<*(p+c)<<" ";
+        if(!(++c%10))cout<<endl;
+    }cout<<endl;
     
     
     delete[] a;
+    delete[] p;
     return 0;
 }
 ////////////////////////////////////////////////////////////////////////////////
@@ -120,4 +126,24 @@ int* Mode(int* a,int n){
             mFrq=temp;
     }
     cout<<mFrq<<endl;
+    for(int temp=1,c=0;c<n-1;c++){
+        if(*(a+c)==a[c+1])
+            temp+=1;
+        else temp=1;
+        if(temp==mFrq)
+            nMds++;
+    }
+    cout<<nMds<<endl;
+//Allocate Dynamic Memory 
+    int* p=new int[nMds+2];
+//Fill Array
+    p[0]=nMds;p[1]=mFrq;p[nMds+2]=0;
+    for(int pos=2,temp=1,c=0;c<n;c++){
+        if(*(a+c)==a[c+1])
+            temp+=1;
+        else temp=1;
+        if(temp==mFrq)
+            *(p+pos++)=a[c];
+    }
+    return p;
 }
