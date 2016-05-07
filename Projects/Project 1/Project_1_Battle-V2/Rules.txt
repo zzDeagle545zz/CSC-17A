@@ -1,0 +1,5 @@
+This game was made to be similar to the famous Pokemon game where two creatures battle.
+The Game works by using abilities to fight.
+Each turn you can use up to 100 Energy to fight.
+Each ability has its own Energy cost and order matters.
+Each Creature also has unique stats.

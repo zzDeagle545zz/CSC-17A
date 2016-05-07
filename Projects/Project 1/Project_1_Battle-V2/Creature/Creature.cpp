@@ -9,6 +9,7 @@
 
 //User Libraries
 #include "Creature.h"
+#include "../Ability/Ability.h"
 #include <iostream>
 
 //******************************************************************************
@@ -169,4 +170,27 @@ void Creature::rsStat(){
     cMagic=Magic;
     cSpeed=Speed;
     cEnrgy=Enrgy;
+}
+//******************************************************************************
+//******************************************************************************
+//                              Take Damage
+//Function- Takes the damage from the ability
+//
+//Inputs
+//    -->The total damage delt from the creature
+//Outputs
+//    <--
+////////////////////////////////////////////////////////////////////////////////
+void Creature::tkDmg(short A){
+//Declare Variables
+    short TolDmg;
+//Damage Calculation
+    TolDmg=A-(cResist+(.65f*cArmor));
+    if(TolDmg<0)
+        TolDmg=0;
+//Deal Damage
+    this->cHP-=TolDmg;
+//Output the Damage
+    cout<<endl<<name<<endl;
+    cout<<"--->took "<<TolDmg<<" Damage!"<<endl;
 }

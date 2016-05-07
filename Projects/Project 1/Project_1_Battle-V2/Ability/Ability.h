@@ -20,21 +20,17 @@ private:
 //Ability Info
     string name;
 //Ability Stats
-    unsigned short eCost;  //Energy Cost
-    unsigned short Speed;  //Casting Speed
-    unsigned short pDmg;
-    unsigned short mDmg;
+    short eCost;  //Energy Cost
+    short Speed;  //Casting Speed
+    short pDmg;
+    short mDmg;
     
 public:
     Ability();
     Ability(char[50]);
-    void dDmg();
-    
+    short dDmg(short,short);
     
     
 };
-
-
-
 #endif	// ABILITY_H
 

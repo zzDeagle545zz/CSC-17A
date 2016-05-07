@@ -9,11 +9,9 @@
 #ifndef CREATURE_H
 #define CREATURE_H
 
-//System Libraries
-//#include <string>
-//#include <fstream>
-
 //User Libraries
+#include <string>
+#include <fstream>
 #include "../Ability/Ability.h"
 
 using namespace std;
@@ -26,30 +24,34 @@ private:
     string type;    //Creature Type
     string element; //Creature Element Name
 //Creature Stats
-    unsigned short HP,cHP;          //Health
-    unsigned short Armor,cArmor;    //Defense Against Physical Damage
-    unsigned short Resist,cResist;  //Defense Against Magic Damage
-    unsigned short Strgth,cStrgth;  //Physical Damage
-    unsigned short Magic,cMagic;    //Elemental Damage
+    short HP,cHP;          //Health
+    short Armor,cArmor;    //Defense Against Physical Damage
+    short Resist,cResist;  //Defense Against Magic Damage
+    short Strgth,cStrgth;  //Physical Damage
+    short Magic,cMagic;    //Elemental Damage
     char Elment;                    //Element Type
-    unsigned short Speed,cSpeed;    //Quickness to react and or attack
-    unsigned short Enrgy,cEnrgy;    //Amount of Energy to Attack/Abilities
+    short Speed,cSpeed;    //Quickness to react and or attack
+    short Enrgy,cEnrgy;    //Amount of Energy to Attack/Abilities
+
+public:
 //Creature Abilities
     Ability* Attack;
     Ability* slot1;
     Ability* slot2;
     Ability* slot3;
     Ability* slot4;
-public:
+
     Creature();     //Constructor
     Creature(char[50]);  //Constructor
     ~Creature();    //Destructor
     void rsStat();  //Resets Stats
 //Accessor Functions
-    unsigned short gtHP() const {return cHP;}   //Get Current Health
+    short gtHP() const {return cHP;}   //Get Current Health
     //Get the Health Bar
-    unsigned short gtHbar() const {return (1.0f*cHP/HP)*20;}
-    unsigned short gtEnrgy() const {return Enrgy;}
+    short gtHbar() const {return (1.0f*cHP/HP)*20;}
+    short gtcHP() const {return cHP;}
+    short gtEnrgy() const {return Enrgy;}
+    short gtcEnrgy() const {return cEnrgy;}
 //Get Name of Creature
     string gtName() const {return name;}
     //Get Name of Attack Ability
@@ -72,7 +74,13 @@ public:
     short gtA3e() const {return slot3->eCost;}
     //Get Name of Ability 4
     short gtA4e() const {return slot4->eCost;}
+//Get Stats
+    short gtStrgth() const {return Strgth;}
+    short gtMagic() const {return Magic;}
+//Battle Functions
+    void tkDmg(short);
 };
+
 #endif // CREATURE_H 
 
 

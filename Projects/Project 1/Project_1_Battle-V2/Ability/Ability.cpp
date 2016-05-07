@@ -6,8 +6,8 @@
  */
 
 //User Libraries
-#include "Ability.h"
-//#include <fstream>
+#include "../Ability/Ability.h"
+#include "../Creature/Creature.h"
 
 //******************************************************************************
 //******************************************************************************
@@ -57,20 +57,19 @@ Ability::Ability(char Name[50]){
 }
 //******************************************************************************
 //******************************************************************************
-//                          Status Effect
-//Function- Decides what the ability does and how it acts with the creatures
+//                                  Deal Damage
+//Function- Returns the Damage of the Ability 
 //
 //Inputs
-//    -->
+//    -->The Creature
 //Outputs
 //    <--
 ////////////////////////////////////////////////////////////////////////////////
-void Ability::dDmg(){
+short Ability::dDmg(short A,short m){
 //Declare Variables
-    
-//Status Effects
-    
-
-    
-    
+    short DmgDlt;
+//Damage Calculation
+    DmgDlt=(A*.7f)+(m*.5f)+mDmg+pDmg;
+//Return Total Damage
+    return DmgDlt; 
 }
